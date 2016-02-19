@@ -6,10 +6,14 @@
 </head>
 <body>
 	<h1>this is the index page to display all users</h1>
-	<ul>
-	<% for (var i = 0; i < users.length; i++) { %>
-	<li> <%= users[i].name %> </li>
-	<% } %>
 
+	<ul>
+		<% for (var i = 0; i < users.length; i++) { %>
+		<li> <%= users[i].name %> </li>
+		<% } %>
+	</ul>
+		<a href="/users">users home</a></br>
+	
+		<a href="/users/new">create a new user</a>
 </body>
 </html>
