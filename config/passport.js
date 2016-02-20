@@ -18,14 +18,14 @@ module.exports = function(passport) {
   // USED TO SERIALIZE THE USER FOR THE SESSION
   passport.serializeUser(function(user, done) {
     done(null, user.id);
-    console.log('3=========================');
+    console.log('8=========================');
     console.log('passing through passport serialization');
   });
   // USED TO DESERIALIZE THE USER FOR THE SESSION
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
         done(err, user);
-        console.log('6=========================');
+        console.log('11=========================');
         console.log('passing through passport deserialization');
     });
   });
@@ -43,13 +43,17 @@ module.exports = function(passport) {
     //console.log('passing through passport.use local-signup');
     }, 
     function(req, email, password, done) {
-
+          console.log('1=========================');
+          console.log('LOCAL SIGNUP CALLBACK');
     //console.log('Req.body within local signup: ', req.body);
 
     // ASYNCHRONOUS, WON'T HAPPEN
     process.nextTick(function() {
     // FIND THE USER WITH THAT EMAIL
     User.findOne({ 'email': email }, function(err, user) {
+          console.log('2=========================');
+          console.log('USER FIND ONE');
+
       // RETURN ANY ERROR
       if (err) { return done(err) }
 
@@ -61,6 +65,8 @@ module.exports = function(passport) {
 
         // IF THEY DON'T SET THEM UP
       } else {
+        console.log('3=========================');
+        console.log('LOCAL SIGNUP SET UP NEW USER');
         var newUser = new User();
         newUser.email = email;
         newUser.password = newUser.generateHash(password);
@@ -68,8 +74,8 @@ module.exports = function(passport) {
 
         // SAVE THE NEW USER
         newUser.save(function(err) {
-          console.log('1=========================');
-          console.log('save new USER');
+          console.log('4=========================');
+          console.log('LOCAL SIGNUP SAVE NEW USER');
           if (err) { 
           //console.log(err)
             throw err;
@@ -95,8 +101,12 @@ module.exports = function(passport) {
     }, 
     // CALLBACK WITH THE EMAIL AND PASSWORD FROM FORM
     function(req, email, password, done) {
+    console.log('5=========================');
+    console.log('LOCAL LOGIN CALLBACK');
     // FIND A USER WITH THE FORM EMAIL  
     User.findOne({ 'email': email }, function(err, user) {
+    console.log('6=========================');
+    console.log('LOCAL LOGIN FIND ONE');
       // RETURN ANY ERRORS
       if (err) { return done(err) }
       // IF NO USER IS FOUND  

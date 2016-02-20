@@ -9,12 +9,14 @@ var express 		= require('express'),
 router.get('/', function(req, res) {
 	res.locals.login = req.isAuthenticated();
 	User.find(function(err, users) {
-		res.render('users/users.ejs', {
+		res.render('users/index.ejs', {
 			users: users
 		})
+	console.log('0=========================')		
+	console.log('INDEX PAGE LINE 2')
 	})
-	console.log('1=========================')		
-	console.log('index page')
+	console.log('0=========================')		
+	console.log('INDEX PAGE LINE 1')
 })
 
 
@@ -44,8 +46,8 @@ router.get('/:id/json', function(req, res) {
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/users');
-	    console.log('7=========================')		
-			console.log('log out of session')    
+	    console.log('15=========================')		
+			console.log('LINE 50 log out of session')    
 });
 
 
@@ -62,10 +64,14 @@ router.get('/:id', isLoggedIn, function(req, res) {
             res.render('users/show.ejs', {
                 users: users
             });		// CLOSE RES.RENDER
+                console.log('13=========================')		
+								console.log('LINE 68 SHOW PAGE')
         });				// CLOSE FINDBYID
+                console.log('12=========================')		
+								console.log('LINE 71 SHOW PAGE')
     });						// CLOSE FINDALL
-                console.log('5=========================')		
-								console.log('show page')
+                console.log('10=========================')		
+								console.log('LINE 74 SHOW PAGE')
 });								// CLOSE ROUTER.GET
 
 
@@ -86,26 +92,22 @@ router.post('/', passport.authenticate('local-signup', {
 router.post('/login', passport.authenticate('local-login', { 
 	failureRedirect: '/pop' }), function(req, res) {
     // success redirect goes to show page
-    //res.rediret('www.google.com')
-    //successRedirect : '/users/' + req.user.id
+    //	successRedirect : '/users/' + req.user.id
     res.redirect('/users/' + req.user.id);
-    console.log('2=========================')
+    console.log('7=========================')
     console.log("logging in with " + req.user.id)
 });
 
 
 function isLoggedIn(req, res, next) {
-	console.log('4=========================')
+	console.log('9=========================')
 	console.log('passing through isLoggedIn');
   if (req.isAuthenticated()) {
-  	//console.log('isloggedin')  // not logging
   	return next(); 
   } else {
-  	res.redirect('/')
-  	//res.redirect('/users');
-  	//res.send('yello')
-  }
-}
+  	res.redirect('/');
+  };
+};
 
 module.exports = router;
 
