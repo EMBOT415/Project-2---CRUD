@@ -3,34 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
-	<title></title>
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script>
+	<title> launch page </title>
 </head>
 <body>
-	<h1>create a new user</h1>
-	<form action="/users" method="POST">
-		<input type="text" name="username" placeholder="username">
-		<input type="text" name="email" placeholder="email">
-		<input type="text" name="password" placeholder="password">
-		<button>Create</button>
-	</form>
+<nav>
+	<ul>
+		<li><a class="link" href="/eric/client"> log in   |   register </a></li>
+	</ul>
+</nav>
 
-	<h1>log in</h1>
-	    <!-- LOGIN FORM -->
-			    <form action="/users/login" method="POST">
-			        <div class="form">
-			            <label>Email</label>
-			            <input type="text" class="form" name="email">
-			        </div>
-			        <div class="form">
-			            <label>Password</label>
-			            <input type="password" class="form" name="password">
-			        </div>
-			        <div class="form">
-			        <button type="submit" class="form">Login</button>
-			      </div>
-			    </form>
-			    <hr>
-	
-	<a  class="link" href="/users">users home</a>
+	<hr>
+	<img src="/photos/IMG_7087.JPG">
 </body>
 </html>

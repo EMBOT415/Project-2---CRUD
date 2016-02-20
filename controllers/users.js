@@ -19,6 +19,14 @@ router.get('/', function(req, res) {
 	console.log('INDEX PAGE LINE 1')
 })
 
+//////////////////////////////////////
+// CLIENT LOG IN
+//////////////////////////////////////
+router.get('/client', function(req, res) {
+	User.find(function(err, users) {
+		res.render('users/user.ejs', { users: users });
+	});
+});
 
 //////////////////////////////////////
 // json for all users (for testing)
@@ -45,7 +53,7 @@ router.get('/:id/json', function(req, res) {
 //////////////////////////////////////
 router.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/users');
+    res.redirect('/eric');
 	    console.log('15=========================')		
 			console.log('LINE 50 log out of session')    
 });
@@ -79,8 +87,8 @@ router.get('/:id', isLoggedIn, function(req, res) {
 // SIGN UP
 ///////////////////////////////////
 router.post('/', passport.authenticate('local-signup', {
-	failureRedirect: '/users' }), function(req, res) {
-	res.redirect('/users/' + req.user.id);
+	failureRedirect: '/eric' }), function(req, res) {
+	res.redirect('/eric/' + req.user.id);
 	console.log('=========================')		
 	console.log('sign up') 
 });
@@ -92,8 +100,8 @@ router.post('/', passport.authenticate('local-signup', {
 router.post('/login', passport.authenticate('local-login', { 
 	failureRedirect: '/pop' }), function(req, res) {
     // success redirect goes to show page
-    //	successRedirect : '/users/' + req.user.id
-    res.redirect('/users/' + req.user.id);
+    //	successRedirect : '/eric/' + req.user.id
+    res.redirect('/eric/' + req.user.id);
     console.log('7=========================')
     console.log("logging in with " + req.user.id)
 });

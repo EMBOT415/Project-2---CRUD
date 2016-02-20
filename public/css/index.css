@@ -8,10 +8,13 @@ body {
 	background-color: lightgrey;
 }
 
+nav {
+	text-align: right;
+}
+
 ul {
 	list-style: none;
 }
-
 
 a.link:visited {
 	font-family: 'disco';
@@ -30,4 +33,14 @@ a.link:hover {
 
 .form {
 	display: inline-block;
+}
+
+div#client {
+	width: 100%;
+	height: 200px;
+}
+
+div#blank {
+	width: 100%;
+	height: 100px;
 }

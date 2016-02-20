@@ -56,7 +56,7 @@ require('./config/passport.js')(passport);
 
 var userController 			= require('./controllers/users.js');
 // var portfolioController = require('./controllers/portfolio.js');
-app.use('/users', userController);
+app.use('/eric', userController);
 
 
 
@@ -68,7 +68,7 @@ app.use('/users', userController);
 
 
 app.get('/', function(req, res) {
-	res.redirect('/users');
+	res.redirect('/eric');
 });
 
 
