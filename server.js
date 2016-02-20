@@ -78,10 +78,9 @@ app.get('/', function(req, res) {
 
 //mongoose.connection.once('open', function() {
 	app.listen(port);
-	console.log('====================================')
-	console.log('====================================')
-	console.log('====================================')
-
+	console.log('=========================')
+	console.log('listening')
+	
 //});
 					
 

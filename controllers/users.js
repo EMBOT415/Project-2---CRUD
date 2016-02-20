@@ -12,8 +12,9 @@ router.get('/', function(req, res) {
 		res.render('users/users.ejs', {
 			users: users
 		})
-		//console.log(users)
 	})
+	console.log('1=========================')		
+	console.log('index page')
 })
 
 
@@ -26,6 +27,7 @@ router.get('/json', function(req, res) {
 	});
 });
 
+
 //////////////////////////////////////
 // json for single user(for testing)
 //////////////////////////////////////
@@ -35,95 +37,66 @@ router.get('/:id/json', function(req, res) {
 	});
 });
 
+
 //////////////////////////////////////
-// logout of session
+// LOG OUT OF SESSION
 //////////////////////////////////////
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/users');
+	    console.log('7=========================')		
+			console.log('log out of session')    
 });
 
-////////////////////////////////////////////
-//show page
-///////////////////////////////////////////
 
-//SHOW PAGE FOR WHEN USER IS LOGGED IN
+////////////////////////////////////////////
+// SHOW PAGE
+///////////////////////////////////////////
 router.get('/:id', isLoggedIn, function(req, res) {
-    //checks if the user is logged in
-    res.locals.usertrue = (req.user.is == req.params.id);
-    //list users
+    // IS THE USER LOGGED IN?
+    res.locals.usertrue = (req.user.id == req.params.id);
+    // FIND ALL USERS
     User.find({}, function(err, users) {
-        //finds single user
+        // FIND THE USER BY THE ID
         User.findById(req.params.id, function(err, users) {
             res.render('users/show.ejs', {
                 users: users
-                //other schema info??????
-            });
-        });
-    });
-});
-
-// //CAN ONLY SEE IF YOU'RE LOGGED IN
-// router.get('/:id', isLoggedIn, function(req, res) {
-// 	//USER EDITING ONLY ON USER PAGE
-// 	//res.locals.usertrue = (req.user.id == req.params.id);
-// 	//req.params.id == req.user.id ? res.usertrue = true : res.usertrue = false;
-// 	req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
-// 	//User.find({}, function(err, users) {
-// 	User.findById(req.params.id, function(err, user) {
-// 		//console.log(req.params.id)
-// 		res.render('users/show.ejs', {
-// 			user: user
-// 		//});
-// 		});
-// 	});
-// });
-
-// router.get('/:id', function(req, res){
-// 	User.findById(req.params.id, function(err, users){
-// 		console.log(req.params.id);
-// 		res.render('users/show.ejs', {
-// 			users: users
-// 		});
-// 	});
-// });
-
+            });		// CLOSE RES.RENDER
+        });				// CLOSE FINDBYID
+    });						// CLOSE FINDALL
+                console.log('5=========================')		
+								console.log('show page')
+});								// CLOSE ROUTER.GET
 
 
 ///////////////////////////////////
-// user signup
+// SIGN UP
 ///////////////////////////////////
 router.post('/', passport.authenticate('local-signup', {
 	failureRedirect: '/users' }), function(req, res) {
 	res.redirect('/users/' + req.user.id);
-
+	console.log('=========================')		
+	console.log('sign up') 
 });
 
 
 ///////////////////////////////////
-//login
+//LOG IN
 ///////////////////////////////////
-// router.post('/login', passport.authenticate('local-login', {
-// 	failureRedirect: '/users' }), function(req, res) {
-// 	//console.log('hello');   // not console logging
-// 	res.redirect('/users/' + req.user.id);
-// 	//res.send('sup')
-// });
-
-
-// login
 router.post('/login', passport.authenticate('local-login', { 
 	failureRedirect: '/pop' }), function(req, res) {
     // success redirect goes to show page
     //res.rediret('www.google.com')
     //successRedirect : '/users/' + req.user.id
     res.redirect('/users/' + req.user.id);
-    console.log(req.user.id)
+    console.log('2=========================')
+    console.log("logging in with " + req.user.id)
 });
 
 
 function isLoggedIn(req, res, next) {
-	console.log('isLoggedIn middleware');
+	console.log('4=========================')
+	console.log('passing through isLoggedIn');
   if (req.isAuthenticated()) {
   	//console.log('isloggedin')  // not logging
   	return next(); 
@@ -171,3 +144,12 @@ module.exports = router;
 // 		res.redirect('/users');
 // 	})
 // })
+
+// login
+// router.post('/login', passport.authenticate('local-login', {
+// 	failureRedirect: '/users' }), function(req, res) {
+// 	//console.log('hello');   // not console logging
+// 	res.redirect('/users/' + req.user.id);
+// 	//res.send('sup')
+// });
+

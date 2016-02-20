@@ -18,13 +18,15 @@ module.exports = function(passport) {
   // USED TO SERIALIZE THE USER FOR THE SESSION
   passport.serializeUser(function(user, done) {
     done(null, user.id);
+    console.log('3=========================');
     console.log('passing through passport serialization');
   });
   // USED TO DESERIALIZE THE USER FOR THE SESSION
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
         done(err, user);
-       console.log('passing through passport deserialization'); 
+        console.log('6=========================');
+        console.log('passing through passport deserialization');
     });
   });
 
@@ -66,8 +68,10 @@ module.exports = function(passport) {
 
         // SAVE THE NEW USER
         newUser.save(function(err) {
+          console.log('1=========================');
+          console.log('save new USER');
           if (err) { 
-            //console.log(err)
+          //console.log(err)
             throw err;
             return done(null, newUser);
           }   // END IF

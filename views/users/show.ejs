@@ -7,15 +7,13 @@
 </head>
 <body>
 	<h1>this is the users show page</h1>
-		<p><%= users.id %></p>
-		<p><%= users.username %></p>
-		<p><%= users.email %></p>
-		<p><%= users.password %></p>
+		<p>This is the users id: <%= users.id %></p></br>
+		<p>This is the users name: <%= users.username %></p></br>
+		<p>This is the users email: <%= users.email %></p></br>
+		<p>This is the users password: <%= users.password %></p></br>
 
-		<a href="/users/logout">Logout</a></br>
+		<a class="link" href="/users/logout">Logout</a></br>
 
-		<a class="link" href="/users">users home</a></br>
 
-		<a class="link" href="/users/new">create a new user</a>
 </body>
 </html>
