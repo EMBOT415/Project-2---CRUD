@@ -19,43 +19,17 @@ var express							= require('express'),
 
 mongoose.connect('mongodb://localhost:27017/ericportfolio');
 
-
-require('./config/passport.js')(passport);
-
-/////////////////////////////////
-//ROUTES//
-/////////////////////////////////
-
-
-var userController 			= require('./controllers/users.js');
-// var portfolioController = require('./controllers/portfolio.js');
-app.use('/users', userController);
-
-
-
-app.use(express.static('public'));
-
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-
-
-app.use(session({ name: 'project2crud', secret: 'conventional wisdom', resave: true,
-    saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-
 /////////////////////////////////
 //MIDDLEWARE//
 /////////////////////////////////
 
+app.use(express.static('public'));
 
-//app.use(morgan('dev'));
+app.use(morgan('dev'));
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 app.use(methodOverride(function(req, res){
@@ -66,26 +40,48 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
+/////////////////////////////////
+//PASSPORT//
+/////////////////////////////////
+app.use(session({ name: 'project2crud', secret: 'conventional wisdom', resave: true,
+    saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+/////////////////////////////////
+//ROUTES/CONTROLLERS//
+/////////////////////////////////
+require('./config/passport.js')(passport);
+
+var userController 			= require('./controllers/users.js');
+// var portfolioController = require('./controllers/portfolio.js');
+app.use('/users', userController);
+
+
+
 ///////////////////////////////////////////////////////
 // app.use(function(req, res, next) {
 //   res.locals.login = req.isAuthenticated();
 //   next();
 // });
 
-/////////////require('./routes.js')(app, passport);
 
+app.get('/', function(req, res) {
+	res.redirect('/users');
+});
 
 
 /////////////////////////////////
 //LISTEN//
 /////////////////////////////////
 
-mongoose.connection.once('open', function() {
+//mongoose.connection.once('open', function() {
 	app.listen(port);
 	console.log('====================================')
 	console.log('====================================')
 	console.log('====================================')
 
-})
+//});
 					
 

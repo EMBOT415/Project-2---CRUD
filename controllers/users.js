@@ -3,8 +3,8 @@ var express 		= require('express'),
 		User				= require('../models/users.js'),
 		passport		= require('passport');
 
-
-
+//////////////////////////////////////
+// INDEX
 //////////////////////////////////////
 router.get('/', function(req, res) {
 	res.locals.login = req.isAuthenticated();
@@ -12,49 +12,84 @@ router.get('/', function(req, res) {
 		res.render('users/users.ejs', {
 			users: users
 		})
+		//console.log(users)
 	})
 })
 
 
-
+//////////////////////////////////////
 // json for all users (for testing)
+//////////////////////////////////////
 router.get('/json', function(req, res) {
 	User.find(function(err, users) {
 		res.send(users);
 	});
 });
 
-
+//////////////////////////////////////
 // json for single user(for testing)
+//////////////////////////////////////
 router.get('/:id/json', function(req, res) {
-	User.findById(req.params.id, function(err, users) {
-		res.send(users);
+	User.findById(req.params.id, function(err, user) {
+		res.send(user);
 	});
 });
 
+//////////////////////////////////////
+// logout of session
+//////////////////////////////////////
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/users');
+});
 
 ////////////////////////////////////////////
 //show page
 ///////////////////////////////////////////
+
+//SHOW PAGE FOR WHEN USER IS LOGGED IN
+router.get('/:id', isLoggedIn, function(req, res) {
+    //checks if the user is logged in
+    res.locals.usertrue = (req.user.is == req.params.id);
+    //list users
+    User.find({}, function(err, users) {
+        //finds single user
+        User.findById(req.params.id, function(err, users) {
+            res.render('users/show.ejs', {
+                users: users
+                //other schema info??????
+            });
+        });
+    });
+});
+
+// //CAN ONLY SEE IF YOU'RE LOGGED IN
 // router.get('/:id', isLoggedIn, function(req, res) {
+// 	//USER EDITING ONLY ON USER PAGE
+// 	//res.locals.usertrue = (req.user.id == req.params.id);
 // 	//req.params.id == req.user.id ? res.usertrue = true : res.usertrue = false;
-// 	//req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
-// 	console.log('hello you')
+// 	req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
+// 	//User.find({}, function(err, users) {
 // 	User.findById(req.params.id, function(err, user) {
-// 		console.log(req.params.id)
+// 		//console.log(req.params.id)
 // 		res.render('users/show.ejs', {
 // 			user: user
+// 		//});
 // 		});
 // 	});
 // });
 
-router.get('/:id', function(req, res){
-	User.findById(req.params.id, function(err, users){
-		res.render('users/show.ejs', {
-			users: users
-		});
-	});
-});
+// router.get('/:id', function(req, res){
+// 	User.findById(req.params.id, function(err, users){
+// 		console.log(req.params.id);
+// 		res.render('users/show.ejs', {
+// 			users: users
+// 		});
+// 	});
+// });
+
+
+
 ///////////////////////////////////
 // user signup
 ///////////////////////////////////
@@ -68,14 +103,23 @@ router.post('/', passport.authenticate('local-signup', {
 ///////////////////////////////////
 //login
 ///////////////////////////////////
-router.post('/login', passport.authenticate('local-login', {
-	failureRedirect: '/users' }), function(req, res) {
-	//console.log('hello');   // not console logging
-	res.redirect('/users/' + req.user.id);
-	//res.send('sup')
+// router.post('/login', passport.authenticate('local-login', {
+// 	failureRedirect: '/users' }), function(req, res) {
+// 	//console.log('hello');   // not console logging
+// 	res.redirect('/users/' + req.user.id);
+// 	//res.send('sup')
+// });
+
+
+// login
+router.post('/login', passport.authenticate('local-login', { 
+	failureRedirect: '/pop' }), function(req, res) {
+    // success redirect goes to show page
+    //res.rediret('www.google.com')
+    //successRedirect : '/users/' + req.user.id
+    res.redirect('/users/' + req.user.id);
+    console.log(req.user.id)
 });
-
-
 
 
 function isLoggedIn(req, res, next) {
@@ -84,7 +128,8 @@ function isLoggedIn(req, res, next) {
   	//console.log('isloggedin')  // not logging
   	return next(); 
   } else {
-  	res.redirect('/users');
+  	res.redirect('/')
+  	//res.redirect('/users');
   	//res.send('yello')
   }
 }
