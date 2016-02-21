@@ -3,17 +3,35 @@
 	src: url('/css/fonts/disco.ttf');
 }
 
+ * {
+ 	padding: 0;
+ 	margin: 0;
+ }
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	font-family: 'disco';
 	background-color: lightgrey;
+	height: 100%;
+	width: 100%;
 }
 
 nav {
-	text-align: right;
+	width: 100%;
 }
 
 ul {
 	list-style: none;
+}
+
+li {
+	display: inline-block;
+	width: 19%;
+	text-align: center;
 }
 
 a.link:visited {
@@ -31,16 +49,89 @@ a.link:hover {
 	color: white;
 }
 
-.form {
+div.wrap {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	background: lightgrey;
+	color: white;
+	text-align: center;
+}
+
+header {
+	background: lightgrey;
+	box-shadow: 0 .5em 1em #111;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 900;
+	width: 100%;
+}
+
+header label {
+	color: #788188;
+	cursor: pointer;
 	display: inline-block;
+	line-height: 4.25em;
+	font-size: .667em;
+	font-weight: bold;
+	padding: 0 1em;
 }
 
-div#client {
-	width: 100%;
-	height: 200px;
+header label:hover {
+	background-color: #2e353b;
 }
 
-div#blank {
+section.slide {
+	height: 100%;
 	width: 100%;
-	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	z-index: 10;
+	padding: 8em 1em 0;
+	background-color: lightgrey;
+	background-position: 50% 50%;
+	background-size: cover;
+	transition: left 0s .75s;
 }
+
+.slide-one { background-image: url('/photos/er1.png'); }
+.slide-two { background-image: url('/photos/er2.png'); }
+/*.slide-three { background-image: url('photos/er3.png'); }*/
+.slide-four { background-image: url('/photos/er4.png'); }
+.slide-five { background-image: url('/photos/er5.png'); }
+.slide-six { background-image: url('/photos/er6.png'); }
+.slide-seven { background-image: url('/photos/er7.png'); }
+.slide-eight { background-image: url('/photos/er8.png'); }
+.slide-nine { background-image: url('/photos/er9.png'); }
+.slide-ten { background-image: url('/photos/er10.png'); }
+.slide-eleven { background-image: url('/photos/er11.png'); }
+.slide-twelve { background-image: url('/photos/er12.png'); }
+.slide-thirteen { background-image: url('/photos/er13.png'); }
+.slide-fourteen { background-image: url('/photos/er14.png'); }
+
+
+[id^="slide"]:checked + .slide {
+	left: 0;
+	z-index: 100;
+	transition: left .65s ease-out;
+}
+
+.slide h1 {
+	font-size: 40px;
+	font-weight: bold;
+	color: black;
+	opacity: 0;
+	transform: translateY(100%);
+	transition: transform .5s .5s, opacity .5s;
+}
+
+[id^="slide"]:checked + .slide h1 {
+	opacity: 1;
+	transform: translateY(0);
+	transition: all .5s .5s;
+}
+
+
