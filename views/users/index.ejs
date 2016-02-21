@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/partials/footerpartial.css">
 	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="/js/index.js"></script>
 	<title> launch page </title>
@@ -10,10 +11,10 @@
 <body>
 <nav>
 	<ul>
-		<li><a href="#"></a>resume</li>
-		<li><a href="#"></a>G.H. Bass & Co</li>
-		<li><a href="#"></a>Tory Burch</li>
-		<li><a href="#"></a>STA</li>
+		<li><a class="link" href="#"></a>resume</li>
+		<li><a class="link" href="#"></a>G.H. Bass & Co</li>
+		<li><a class="link" href="#"></a>Tory Burch</li>
+		<li><a class="link" href="#"></a>STA</li>
 		<li><a class="link" href="/eric/client"> log in | register </a></li>
 	</ul>
 </nav>
@@ -23,7 +24,7 @@
 <header>
 	<label for="slide-1-trigger">1</label>
 	<label for="slide-2-trigger">2</label>
-	<!-- <label for="slide-3-trigger">3</label> -->
+	<label for="slide-3-÷trigger">3</label>
 	<label for="slide-4-trigger">4</label>
 	<label for="slide-5-trigger">5</label>
 	<label for="slide-6-trigger">6</label>
@@ -45,10 +46,10 @@
 	<section class="slide slide-two">
 		<h1>headline two</h1>
 	</section>
-	<!-- <input id="slide-3-trigger" type="radio" name="slides">
+	<input id="slide-3-trigger" type="radio" name="slides">
 	<section class="slide slide-three">
 		<h1>headline three</h1>
-	</section> -->
+	</section>
 	<input id="slide-4-trigger" type="radio" name="slides">
 	<section class="slide slide-four">
 		<h1>headline four</h1>
@@ -93,8 +94,12 @@
 	<section class="slide slide-fourteen">
 		<h1>headline fourteen</h1>
 	</section>
-
-
 </div>
+
+<footer>
+<nav>
+	<% include ./footerpartial %>
+</nav>
+</footer>
 </body>
 </html>

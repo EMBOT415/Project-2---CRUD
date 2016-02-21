@@ -99,7 +99,7 @@ section.slide {
 
 .slide-one { background-image: url('/photos/er1.png'); }
 .slide-two { background-image: url('/photos/er2.png'); }
-/*.slide-three { background-image: url('photos/er3.png'); }*/
+.slide-three { background-image: url('photos/er3.png'); }
 .slide-four { background-image: url('/photos/er4.png'); }
 .slide-five { background-image: url('/photos/er5.png'); }
 .slide-six { background-image: url('/photos/er6.png'); }
@@ -134,4 +134,7 @@ section.slide {
 	transition: all .5s .5s;
 }
 
-
+footer {
+	width: 100%;
+	height: 100px;
+}
