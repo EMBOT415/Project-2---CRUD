@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/css/index.css">
-	<link rel="stylesheet" type="text/css" href="css/partials/footerpartial.css">
-	<title></title>
-</head>
+	<% include ./headerpartial %>
 <body>
+	<nav>
+		<ul>
+			<li id="left"><a class="link" href="/eric/resume"></a>resume</li>
+			<li id="right"><a class="link" href="/eric"> home </a></li>
+		</ul>
+	</nav>
 	<h1>this is the users show page</h1>
 		<p>This is the users id: <%= users.id %></p></br>
 		<p>This is the users name: <%= users.username %></p></br>

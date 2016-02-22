@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/css/index.css">
-	<link rel="stylesheet" type="text/css" href="css/partials/footerpartial.css">
-	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
-	<script type="text/javascript" src="/js/index.js"></script>
-	<title></title>
-</head>
+	<% include ./headerpartial %>
 <body>
-	<div class="register">
-	<h1>register</h1>
-	<form action="/eric" method="POST">
-		<input type="text" name="username" placeholder="username">
-		<input type="text" name="email" placeholder="email">
-		<input type="text" name="password" placeholder="password">
-		<button type="submit">Create</button>
-	</form>
-</div>
-<div class="login">
-	<h1>log in</h1>
-  <form action="/eric/login" method="POST">
-    <input type="text" name="email" placeholder="email">
-    <input type="password" name="password" placeholder="password">
-    <button type="submit">Login</button>
-  </form>
-</div>
+		<ul>
+			<li id="left"><a class="link" href="#"> resume </a></li>
+			<li id="right"><a class="link" href="/eric"> home </a></li>
+		</ul>
+	<div id="registerwrap">
+	register
+		<form id="register" action="/eric" method="POST">
+			<input class="register" type="text" name="username" placeholder="username">
+			<input class="register" type="text" name="email" placeholder="email">
+			<input class="register" type="text" name="password" placeholder="password">
+			<button class="register" type="submit">Create</button>
+		</form>
+	</div>
+	
+	<div id="loginwrap">
+	log in
+	  <form id="login" action="/eric/login" method="POST">
+	    <input class="login" type="text" name="email" placeholder="email">
+	    <input class="login" type="password" name="password" placeholder="password">
+	    <button class="login" type="submit">Login</button>
+	  </form>
+	</div>
+
 	<hr>
-	<img src="/photos/IMG_7087.JPG">
+	<div id='imgwrapper'>
+		<img src="/photos/IMG_7087.JPG">
+	</div>
 	<footer>
-<nav>
-	<% include ./footerpartial %>
-</nav>
-</footer>
+		<% include ./footerpartial %>
+	</footer>
 </body>
 </html>

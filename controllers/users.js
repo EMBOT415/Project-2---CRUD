@@ -19,6 +19,14 @@ router.get('/', function(req, res) {
 	console.log('INDEX PAGE LINE 1')
 })
 
+
+router.get('/resume', function(req, res) {
+	User.find(function(err, users) {
+		res.render('users/resume.ejs', { users: users });
+	});
+});
+
+
 //////////////////////////////////////
 // CLIENT LOG IN
 //////////////////////////////////////
