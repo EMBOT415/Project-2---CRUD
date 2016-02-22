@@ -55,7 +55,7 @@ app.use(passport.session());
 require('./config/passport.js')(passport);
 
 var userController 			= require('./controllers/users.js');
-// var portfolioController = require('./controllers/portfolio.js');
+// var projectController = require('./controllers/projects.js');
 app.use('/eric', userController);
 
 
