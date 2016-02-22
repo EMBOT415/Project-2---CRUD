@@ -2,32 +2,34 @@
 <html>
 	<% include ./headerpartial %>
 <body>
-		<ul>
-			<li id="left"><a class="link" href="#"> resume </a></li>
-			<li id="right"><a class="link" href="/eric"> home </a></li>
-		</ul>
-	<div id="registerwrap">
-	register
+	<ul>
+		<li id="left"><a class="link" href="#"> resume </a></li>
+		<li id="right"><a class="link" href="/eric"> home </a></li>
+	</ul>
+	<div id="signupin">
+		<div id="loginwrap">
+		<h3> log in </h3>
+		  <form id="login" action="/eric/login" method="POST">
+		    <input class="login" type="text" name="email" placeholder="email">
+		    <input class="login" type="password" name="password" placeholder="password">
+		    <button class="login" type="submit">LOGIN</button>
+		  </form>
+		</div>
+
+		<div id="registerwrap">
+		<h3> register </h3>
 		<form id="register" action="/eric" method="POST">
 			<input class="register" type="text" name="username" placeholder="username">
 			<input class="register" type="text" name="email" placeholder="email">
 			<input class="register" type="text" name="password" placeholder="password">
-			<button class="register" type="submit">Create</button>
+			<button class="register" type="submit">REGISTER</button>
 		</form>
-	</div>
-	
-	<div id="loginwrap">
-	log in
-	  <form id="login" action="/eric/login" method="POST">
-	    <input class="login" type="text" name="email" placeholder="email">
-	    <input class="login" type="password" name="password" placeholder="password">
-	    <button class="login" type="submit">Login</button>
-	  </form>
-	</div>
+		</div>
 
-	<hr>
-	<div id='imgwrapper'>
-		<img src="/photos/IMG_7087.JPG">
+		<hr>
+		<div id='imgwrapper'>
+			<img id="head" src="/photos/IMG_7087.JPG">
+		</div>
 	</div>
 	<footer>
 		<% include ./footerpartial %>

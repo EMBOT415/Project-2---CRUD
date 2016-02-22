@@ -67,8 +67,9 @@ a.link:hover {
 }
 
 .wrap { 
-	height: 700px;
-	width: 1000px;
+	height: 500px;
+	width: 900px;
+	margin: 10%;
 	position: relative;
 	overflow: hidden;
 	text-align: center;
