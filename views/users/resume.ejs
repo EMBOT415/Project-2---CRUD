@@ -4,11 +4,28 @@
 	<% include ./headerpartial %>
 <body>
 	<nav>
-		<ul id="navul">
-			<li id="left"><a class="link" href="/eric"> home </a></li>
-			<li id="right"><a class="link" href="/eric/client"> log in | register </a></li>
+		<div class="dropdown navdisplay"><button class="dropbtn"> Work </button>
+			<div class="dropdown-content">
+			    <a href="/eric/resume">Resume</a>
+			    <a href="#">G.H. Bass & Co</a>
+			    <a href="#">Tory Burch</a>
+			    <a href="#">STA</a>
+			</div>
+		</div>
 
-		</ul>
+		<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
+			<div class="dropdown-content">
+			    <a href="/eric/resume">Resume</a>
+			    <a href="#">Personal</a>
+			</div>
+		</div>
+
+		<div class="dropdown navdisplay"><button class="dropbtn"><a class="link" href="/eric"> Home </a></button>
+		</div>
+
+		<div id="right" class="navdisplay dropdown"><button class="dropbtn">
+			<a class="link" href="/eric/client"> log in | register </a></button>
+		</div>
 	</nav>
 	<div id="resume">
 		<!-- <object data="/photos/erResume.pdf"></object> -->

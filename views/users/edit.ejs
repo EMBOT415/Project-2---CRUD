@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<% include ./headerpartial %>
+<body>
+	<nav>
+		<div class="dropdown navdisplay"><button class="dropbtn"> Work </button>
+			<div class="dropdown-content">
+			    <a href="/eric/resume">Resume</a>
+			    <a href="#">G.H. Bass & Co</a>
+			    <a href="#">Tory Burch</a>
+			    <a href="#">STA</a>
+			</div>
+		</div>
+		<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
+			<div class="dropdown-content">
+			    <a href="/eric/resume">Resume</a>
+			    <a href="#">Personal</a>
+			</div>
+		</div>
+		<div class="dropdown navdisplay"><button class="dropbtn"> Home </button>
+		</div>
+<!-- 		<div id="right" class="navdisplay dropdown"><button class="dropbtn">
+			<a class="link" href="/eric/client"> log in | register </a></button>
+		</div> -->
+	</nav>
+		<div>
+		<h3> update </h3>
+		<form id="editformid" action="/eric/<%= users.id %>" method="POST">
+			<input type="text" name="username" value="<%= users.username %>">
+			<input type="text" name="email" value="<%= users.email %>">
+			<input id="editformid" type="text" name="password" value="<%= users.password %>">
+			<input type="hidden" name="_method" value="PUT"/>
+			<button type="submit">UPDATE</button>
+		</form>
+		</div>
+	<footer>
+		<% include ./footerpartial %>
+	</footer>
+</body>
+</html>

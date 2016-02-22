@@ -2,33 +2,45 @@
 <html>
 	<% include ./headerpartial %>
 <body>
-		<ul id="navul">
-		  <li id="dropdown"><div class="dropdown">
-			  <button class="dropbtn"> Work </button>
-			  <div class="dropdown-content">
+	<nav>
+		<div class="dropdown navdisplay"><button class="dropbtn"> Work </button>
+			<div class="dropdown-content">
 			    <a href="/eric/resume">Resume</a>
 			    <a href="#">G.H. Bass & Co</a>
 			    <a href="#">Tory Burch</a>
 			    <a href="#">STA</a>
-			  </div></li>
 			</div>
-			<li id="dropdown"><div class="dropdown">
-			  <button class="dropbtn"> About </button>
-			  <div class="dropdown-content">
+		</div>
+
+		<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
+			<div class="dropdown-content">
 			    <a href="/eric/resume">Resume</a>
 			    <a href="#">Personal</a>
-			  </div></li>
 			</div>
-			<li id="right"><a class="link" href="/eric"> home </a></li>
-		</ul>
+		</div>
+
+		<div class="dropdown navdisplay"><button class="dropbtn"><a class="link" href="/eric"> Home </a></button>
+		</div>
+
+
+		<div id="right" class="navdisplay dropdown"><button class="dropbtn">
+			<a class="link" href="/eric/client"> log in | register </a></button>
+		</div>
 	</nav>
 	<h1>this is the users show page</h1>
-		<p>This is the users id: <%= users.id %></p></br>
-		<p>This is the users name: <%= users.username %></p></br>
-		<p>This is the users email: <%= users.email %></p></br>
-		<p>This is the users password: <%= users.password %></p></br>
-
-		<a class="link" href="/eric/logout">Logout</a></br>
+	<div>
+		<p>This is your id: <%= users.id %></p></br>
+		<p>This is your name: <%= users.username %></p></br>
+		<p>This is your email: <%= users.email %></p></br>
+		<p>This is your password: <%= users.password %></p></br>
+	</div>
+	<div>
+		<% for (var i= 0; i < users.projects.length; i++) { %>
+		<p>These are your projects: <%= users.projects[i] %></p></br>
+		<% } %>
+	</div>
+		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update</a></div></br>
+		<div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div>
 
 <footer>
 <nav>

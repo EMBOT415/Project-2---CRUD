@@ -114,6 +114,24 @@ router.post('/login', passport.authenticate('local-login', {
     console.log("logging in with " + req.user.id)
 });
 
+///////////////////////////////////
+//UPDATE
+///////////////////////////////////
+router.get('/:id/edit', function(req, res){
+	User.findById(req.params.id, function(err, users){
+	res.render('users/edit.ejs', {
+	 	users: users
+	 });
+	});
+});
+
+//SET UP THE PATH TO UPDATE AND ITEM IN MONGO ... WHAT HAPPENS WHEN YOU CLICK THE BUTTON
+router.put('/:id', function(req, res){
+	User.findByIdAndUpdate(req.params.id, req.body, function(err, users){
+		res.redirect('/eric/' + req.params.id);
+		console.log(err);
+	});
+});
 
 function isLoggedIn(req, res, next) {
 	console.log('9=========================')
@@ -129,6 +147,11 @@ module.exports = router;
 
 
 
+// router.put('/:id', function(req, res){
+//   Item.findByIdAndUpdate(req.params.id, { $inc: { qty:-1 } }, function(err, data){
+//     res.redirect('/shop/' + req.params.id);
+//   });
+// });
 
 
 // router.get('/', function(req, res){

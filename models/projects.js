@@ -4,7 +4,7 @@ var bcrypt 			= require('bcrypt-nodejs');
 var projectSchema = mongoose.Schema({
 	startDate: Date,
  	estimateCost: Number,
-	timeline: String,
+	timeline: String
 	
 
 })

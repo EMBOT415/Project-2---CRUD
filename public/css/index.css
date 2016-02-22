@@ -41,7 +41,7 @@
 
 /*login | regiseter*/
 div#right {
-	width: 60%;
+	width: 40%;
 	text-align: right;
 	display: inline-block;
 }
@@ -127,7 +127,7 @@ a.link:hover {
 img.index{
 	height: 500px;
 	width: 100%;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 }
 
 
