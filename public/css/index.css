@@ -111,26 +111,57 @@ a.link:hover {
 	color: lightgrey;
 }
 
+
+#homewrapper {
+	width: 100%;
+	position: relative;
+	margin: 2em;
+	overflow: .fixedHeight;
+
+}
+
+#ericwrapper {
+	display: block;
+	vertical-align: top;
+	position: absolute;
+}
+
+#imgwrapper {
+	margin-left: 550px;
+	display: block;
+	vertical-align: top;
+	position: absolute;
+
+}
+#spacerdiv {
+	height: 700px;
+}
+
 .wrap > div {
 	height: 500px;
 	width: 100%;
 	position: absolute;
 	text-align: center;
+	/*border: 2px solid black;*/
 }
 
 .wrap { 
 	height: 500px;
-	width: 850px;
-	margin: 5%;
+	width: 500px;
+	/*margin: 5%;*/
 	position: relative;
 	overflow: hidden;
 	text-align: center;
+	/*display: block;*/
+	/*border: 2px solid blue;*/
 }
 
 img.index{
 	height: 500px;
-	width: 100%;
-	/*border: 1px solid black;*/
+	width: 500px;
 }
 
-
+#footerdiv {
+	margin-top: 50%;
+	width: 100%;
+}

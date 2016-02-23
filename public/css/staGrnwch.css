@@ -1,0 +1,73 @@
+
+article.wrap {
+	height: 700px;
+	width: 1100px;
+	position: relative;
+	overflow: hidden;
+	color: white;
+	text-align: center;
+	margin: 1em;
+}
+
+
+#header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 900;
+	width: 100%;
+}
+
+#header label {
+
+	color: #788188;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 4.25em;
+	font-size: .667em;
+	font-weight: bold;
+	padding: 0 1em;
+
+}
+
+#header label:hover {
+	background-color: #2e353b;
+	color: white;
+}
+
+.slide {
+	height: 70%;
+	width: 100%;
+	position: absolute;
+	left: 100%;
+	z-index: 10;
+	padding: 8em 1em 0;
+	background-position: 50% 50%;
+	background-size: cover;
+	transition: left 0s .75s;
+	margin-top: 5%;
+
+}
+
+
+.slide-one { background-image: url('/photos/sta_greenwich/sta_Gr1.png'); }
+.slide-two { background-image: url('/photos/sta_greenwich/sta_Gr2.png'); }
+.slide-three { background-image: url('/photos/sta_greenwich/sta_Gr3.png'); }
+.slide-four { background-image: url('/photos/sta_greenwich/sta_Gr4.png'); }
+.slide-five { background-image: url('/photos/sta_greenwich/sta_Gr5.png'); }
+.slide-six { background-image: url('/photos/sta_greenwich/sta_Gr6.png'); }
+.slide-seven { background-image: url('/photos/sta_greenwich/sta_Gr7.png'); }
+.slide-eight { background-image: url('/photos/sta_greenwich/sta_Gr8.png'); }
+.slide-nine { background-image: url('/photos/sta_greenwich/sta_Gr9.png'); }
+.slide-ten { background-image: url('/photos/sta_greenwich/sta_Gr10.png'); }
+.slide-eleven { background-image: url('/photos/sta_greenwich/sta_Gr11.png'); }
+.slide-twelve { background-image: url('/photos/sta_greenwich/sta_Gr12.png'); }
+.slide-thirteen { background-image: url('/photos/sta_greenwich/sta_Gr13.png'); }
+
+input[id^="slide"]:checked + .slide {
+	left: 0;
+	top: 0;
+	z-index: 100;
+	transition: left .65s ease-out;
+}
+

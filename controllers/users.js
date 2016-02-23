@@ -32,7 +32,13 @@ router.get('/tory', function(req, res) {
 	});
 });
 
-router.get('/sta', function(req, res) {
+router.get('/staGrnwch', function(req, res) {
+	User.find(function(err, users) {
+		res.render('users/staGrnwch.ejs', { users: users });
+	});
+});
+
+router.get('/staNby', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/sta.ejs', { users: users });
 	});

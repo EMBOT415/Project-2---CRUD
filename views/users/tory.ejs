@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<% include ./headerpartial %>
+	<link rel="stylesheet" type="text/css" href="/css/tory.css">
 	</head>
 <body>
 	<nav>
@@ -10,7 +11,8 @@
 			    <a href="/eric/resume">Resume</a>
 			    <a href="/eric/bass">G.H. Bass & Co</a>
 			    <a href="/eric/tory">Tory Burch</a>
-			    <a href="/eric/sta">STA</a>
+			    <a href="/eric/staGrnwch">STA Greenwich</a>
+			    <a href="/eric/staNby">STA Newbury St</a>
 			</div>
 		</div>
 
@@ -28,12 +30,39 @@
 			<a class="link" href="/eric/client"> log in | register </a></button>
 		</div>
 	</nav>
-	<div id="tory">
+<body>
 
-	</div>
+<article class="wrap">
+	<section id="header">
+		<label for="slide-1-trigger">1</label>
+		<label for="slide-2-trigger">2</label>
+		<label for="slide-3-trigger">3</label>
+		<label for="slide-4-trigger">4</label>
+
+	</section>
+	
+	<section id="pictures">
+
+		<input id="slide-1-trigger" type="radio" name="slides" checked>
+		<section class="slide slide-one">
+		</section>
+		<input id="slide-2-trigger" type="radio" name="slides">
+		<section class="slide slide-two">
+		</section>
+		<input id="slide-3-trigger" type="radio" name="slides">
+		<section class="slide slide-three">
+		</section>
+		<input id="slide-4-trigger" type="radio" name="slides">
+		<section class="slide slide-four">
+		</section>
+
+	</section>
+</article>
 
 <footer>
-	<% include ./footerpartial %>
+	<nav>
+		<% include ./footerpartial %>
+	</nav>
 </footer>
 </body>
 </html>
