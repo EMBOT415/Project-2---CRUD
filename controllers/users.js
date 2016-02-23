@@ -140,6 +140,34 @@ router.get('/:id', isLoggedIn, function(req, res) {
 								console.log('LINE 74 SHOW PAGE')
 });								// CLOSE ROUTER.GET
 
+///////////////////////////////////
+//NEW PROJECT TO USER
+///////////////////////////////////
+
+router.post('/:id/newproject', function(req, res) {
+	User.findById(req.params.id, function(err, user) {
+		var project = new Project(req.body);
+		project.save(function(err, project) {
+			user.project.push(project);
+			user.save(function(err, user) {
+				res.redirect('/eric/' + req.params.id);
+			});		
+		});
+	});
+});
+
+
+// router.post('/:id/newproject', function(req, res) {
+// 	User.findById(req.params.id, function(err, user) {
+// 		var project = new Project(req.body);
+// 		project.save(function(err, project) {
+// 			user.project.push(project);
+// 			user.save(function(err, user) {
+// 				res.redirect('/eric/' + req.params.id);
+// 			});		
+// 		});
+// 	});
+// });
 
 ///////////////////////////////////
 // SIGN UP
@@ -164,36 +192,7 @@ router.post('/login', passport.authenticate('local-login', {
     console.log("logging in with " + req.user.id)
 });
 
-///////////////////////////////////
-//NEW PROJECT TO USER
-///////////////////////////////////
 
-router.post('/:id/newproject', function(req, res) {
-	User.findById(req.params.id, function(err, user) {
-		var project = new Project(req.body);
-		project.save(function(err, project) {
-			user.project.push(project);
-			user.save(function(err, user) {
-				res.redirect('/eric/' + req.params.id);
-			});		
-		});
-	});
-});
-// router.post('/:id', function(req, res) {
-// 	User.findById(req.user.id, function(err, user) {
-// 		var project = new Project(req.body);
-// 		project.save(function(err, project) {
-// 			user.project.push(project);
-// 			user.save(function(err) {
-// 				res.redirect('/eric/' + req.user.id);
-// 				console.log(user)
-// 			});		
-// 				console.log(req.body)	
-// 		});
-// 			console.log(req.body)
-// 	});
-// 		console.log(req.body)
-// });
 ///////////////////////////////////
 //UPDATE
 ///////////////////////////////////

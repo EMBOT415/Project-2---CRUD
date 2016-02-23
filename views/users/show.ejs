@@ -47,6 +47,15 @@
 		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update</a></div></br>
 		<div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div>
 
+<p>Add a new project</p>
+	<form action="/eric/<%= users.id %>/newproject" method="POST">
+		<input type="text" name="projectName" placeholder="projectName"></br>
+		<input type="text" name="startDate" placeholder="startDate"></br>
+		<input type="text" name="quote" placeholder="quote"></br>
+		<input type="text" name="timeline" placeholder="timeline"></br>
+		<input type="text" name="details" placeholder="details"></br>
+		<input type="submit">
+	</form>
 <footer>
 <nav>
 	<% include ./footerpartial %>
