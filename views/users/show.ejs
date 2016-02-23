@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<% include ./headerpartial %>
+	<link rel="stylesheet" type="text/css" href="/css/show.css">
+	</head>
 <body>
 	<nav>
 		<div class="dropdown navdisplay"><button class="dropbtn"> Work </button>
 			<div class="dropdown-content">
 			    <a href="/eric/resume">Resume</a>
-			    <a href="#">G.H. Bass & Co</a>
-			    <a href="#">Tory Burch</a>
-			    <a href="#">STA</a>
+			    <a href="/eric/bass">G.H. Bass & Co</a>
+			    <a href="/eric/tory">Tory Burch</a>
+			    <a href="eric/sta">STA</a>
 			</div>
 		</div>
 
@@ -27,7 +29,7 @@
 			<a class="link" href="/eric/client"> log in | register </a></button>
 		</div>
 	</nav>
-	<h1>this is the users show page</h1>
+	<h1> Welcome, <%= users.username %> </h1>
 	<div>
 		<p>This is your id: <%= users.id %></p></br>
 		<p>This is your name: <%= users.username %></p></br>

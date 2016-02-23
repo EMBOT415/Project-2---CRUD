@@ -20,13 +20,29 @@ router.get('/', function(req, res) {
 })
 
 
+router.get('/bass', function(req, res) {
+	User.find(function(err, users) {
+		res.render('users/bass.ejs', { users: users });
+	});
+});
+
+router.get('/tory', function(req, res) {
+	User.find(function(err, users) {
+		res.render('users/tory.ejs', { users: users });
+	});
+});
+
+router.get('/sta', function(req, res) {
+	User.find(function(err, users) {
+		res.render('users/sta.ejs', { users: users });
+	});
+});
+
 router.get('/resume', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/resume.ejs', { users: users });
 	});
 });
-
-
 //////////////////////////////////////
 // CLIENT LOG IN
 //////////////////////////////////////
