@@ -1,7 +1,35 @@
-div.logout {
-    margin: 3em 0;
+
+
+li {
+	list-style: none;
 }
 
-div.update {
-    margin: 3em 0;
+#projects {
+	border: 1px solid black;
+	width: 40%;
+	margin: 1em;
+}
+
+span {
+	font-weight: bold;
+}
+
+.welcome {
+	margin-left: 1em;
+}
+
+.update {
+	margin-left: 1em;
+}
+
+.logout {
+	margin-left: 1em;
+}
+
+.newproject {
+	margin-left: 1em;
+}
+
+.new {
+	margin: 1em;
 }

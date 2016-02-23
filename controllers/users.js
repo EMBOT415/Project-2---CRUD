@@ -21,7 +21,8 @@ router.get('/', function(req, res) {
 })
 
 //////////////////////////////////////
-// INDEX
+// BASS WORK
+
 //////////////////////////////////////
 router.get('/bass', function(req, res) {
 	User.find(function(err, users) {

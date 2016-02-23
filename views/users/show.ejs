@@ -30,24 +30,30 @@
 			<a class="link" href="/eric/client"> log in | register </a></button>
 		</div>
 	</nav>
-	<h1> Welcome, <%= users.username %> </h1>
-	<div>
-		<p>This is your id: <%= users.id %></p></br>
-		<p>This is your name: <%= users.username %></p></br>
-		<p>This is your email: <%= users.email %></p></br>
-		<p>This is your password: <%= users.password %></p></br>
-	</div>
-	<ul>
+	<h1 class="welcome"> Welcome, <%= users.username %> </h1></br>
+
+	<ul >
+		<p class="welcome">These are your projects: </p>
+		</br>
+	
 		<% for (var i= 0; i < users.project.length; i++) { %>
-		<p>These are your projects: <%= users.project[i] %></p></br>
+		<div id="projects">
+			<li><span> Name: </span><%= users.project[i].projectName %></li></br>
+			<li><span> Quote:  </span><%= users.project[i].quote %></li></br>
+			<li><span> Start:  </span><%= users.project[i].startDate %></li></br>
+			<li><span> Estimated Timeline: </span><%= users.project[i].timeline %></li></br>
+			<li><span> Details:  </span><%= users.project[i].details %></li></br>
+		</div>
+	</br>
 		<% } %>
+		
 	</ul>
-		<div class="add"><a class="link" href="/eric/<%= users.id %>/newproject">Add A Project</a></div></br>
+	<!-- 	<div class="add"><a class="link" href="/eric/<%= users.id %>/newproject">Add A Project</a></div></br> -->
 	<!-- 	<div class="projects"><a class="link" href="/eric/<%= users.id %>/projects">Current Projects</a></div></br> -->
 		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update</a></div></br>
 		<div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div>
-
-<p>Add a new project</p>
+<div class='newproject'>
+<h1 class='new'>Add a new project</h1>
 	<form action="/eric/<%= users.id %>/newproject" method="POST">
 		<input type="text" name="projectName" placeholder="projectName"></br>
 		<input type="text" name="startDate" placeholder="startDate"></br>
@@ -56,6 +62,7 @@
 		<input type="text" name="details" placeholder="details"></br>
 		<input type="submit">
 	</form>
+</div>
 <footer>
 <nav>
 	<% include ./footerpartial %>
