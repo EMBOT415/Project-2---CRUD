@@ -1,6 +1,7 @@
 var express 		= require('express'),
 		router      = express.Router(),
 		User				= require('../models/users.js'),
+		Project			= require('../models/project.js'),
 		passport		= require('passport');
 
 //////////////////////////////////////
@@ -19,36 +20,63 @@ router.get('/', function(req, res) {
 	console.log('INDEX PAGE LINE 1')
 })
 
-
+//////////////////////////////////////
+// INDEX
+//////////////////////////////////////
 router.get('/bass', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/bass.ejs', { users: users });
 	});
 });
 
+//////////////////////////////////////
+// TORY BURCH WORK
+//////////////////////////////////////
 router.get('/tory', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/tory.ejs', { users: users });
 	});
 });
 
+//////////////////////////////////////
+// STA IN GREENWICH
+//////////////////////////////////////
 router.get('/staGrnwch', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/staGrnwch.ejs', { users: users });
 	});
 });
 
+//////////////////////////////////////
+// STA ON NEWBURY ST
+//////////////////////////////////////
 router.get('/staNby', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/sta.ejs', { users: users });
 	});
 });
 
+//////////////////////////////////////
+// RESUME PAGE
+//////////////////////////////////////
 router.get('/resume', function(req, res) {
 	User.find(function(err, users) {
 		res.render('users/resume.ejs', { users: users });
 	});
 });
+
+//////////////////////////////////////
+// NEW PROJECT FORM
+//////////////////////////////////////
+router.get('/:id/newproject', function(req, res) {
+	User.find(function(err, users) {
+		res.render('projects/newproject.ejs', { users: users });
+		console.log(users)
+	});
+});
+
+
+
 //////////////////////////////////////
 // CLIENT LOG IN
 //////////////////////////////////////
@@ -136,6 +164,36 @@ router.post('/login', passport.authenticate('local-login', {
     console.log("logging in with " + req.user.id)
 });
 
+///////////////////////////////////
+//NEW PROJECT TO USER
+///////////////////////////////////
+
+router.post('/:id/newproject', function(req, res) {
+	User.findById(req.params.id, function(err, user) {
+		var project = new Project(req.body);
+		project.save(function(err, project) {
+			user.project.push(project);
+			user.save(function(err, user) {
+				res.redirect('/eric/' + req.params.id);
+			});		
+		});
+	});
+});
+// router.post('/:id', function(req, res) {
+// 	User.findById(req.user.id, function(err, user) {
+// 		var project = new Project(req.body);
+// 		project.save(function(err, project) {
+// 			user.project.push(project);
+// 			user.save(function(err) {
+// 				res.redirect('/eric/' + req.user.id);
+// 				console.log(user)
+// 			});		
+// 				console.log(req.body)	
+// 		});
+// 			console.log(req.body)
+// 	});
+// 		console.log(req.body)
+// });
 ///////////////////////////////////
 //UPDATE
 ///////////////////////////////////

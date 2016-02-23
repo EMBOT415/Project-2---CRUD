@@ -2,9 +2,11 @@ var mongoose 		= require('mongoose');
 var bcrypt 			= require('bcrypt-nodejs');
 
 var projectSchema = mongoose.Schema({
-	startDate: Date,
- 	estimateCost: Number,
-	timeline: String
+	projectName: String,
+	startDate: String,
+ 	quote: Number,
+	timeline: String,
+	details: String
 	
 
 })

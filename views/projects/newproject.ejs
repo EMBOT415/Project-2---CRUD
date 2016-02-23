@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<% include ./headerpartial %>
+	<% include ../users/headerpartial %>
 	<link rel="stylesheet" type="text/css" href="/css/show.css">
 	</head>
 <body>
@@ -30,27 +30,23 @@
 			<a class="link" href="/eric/client"> log in | register </a></button>
 		</div>
 	</nav>
-	<h1> Welcome, <%= users.username %> </h1>
-	<div>
-		<p>This is your id: <%= users.id %></p></br>
-		<p>This is your name: <%= users.username %></p></br>
-		<p>This is your email: <%= users.email %></p></br>
-		<p>This is your password: <%= users.password %></p></br>
-	</div>
-	<ul>
-		<% for (var i= 0; i < users.project.length; i++) { %>
-		<p>These are your projects: <%= users.project[i] %></p></br>
-		<% } %>
-	</ul>
-		<div class="add"><a class="link" href="/eric/<%= users.id %>/newproject">Add A Project</a></div></br>
-	<!-- 	<div class="projects"><a class="link" href="/eric/<%= users.id %>/projects">Current Projects</a></div></br> -->
-		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update</a></div></br>
-		<div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div>
 
+	
+
+
+<p>Add a new project</p>
+	<form action="/eric/<%= users.id %>" method="POST">
+		<input type="text" name="projectName" placeholder="projectName"></br>
+		<input type="text" name="startDate" placeholder="startDate"></br>
+		<input type="text" name="quote" placeholder="quote"></br>
+		<input type="text" name="timeline" placeholder="timeline"></br>
+		<input type="text" name="details" placeholder="details"></br>
+		<input type="submit">
+	</form>
 <footer>
-<nav>
-	<% include ./footerpartial %>
-</nav>
+	<nav>
+		<% include ../users/footerpartial %>
+	</nav>
 </footer>
 </body>
 </html>
