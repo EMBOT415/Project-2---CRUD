@@ -1,5 +1,6 @@
 
 
+
 li {
 	list-style: none;
 }
@@ -8,6 +9,8 @@ li {
 	border: 1px solid black;
 	width: 40%;
 	margin: 1em;
+	position: relative;
+	padding-left: 8px;
 }
 
 span {
@@ -16,10 +19,32 @@ span {
 
 .welcome {
 	margin-left: 1em;
+	border: 1px solid black;
 }
 
 .update {
-	margin-left: 1em;
+	width: 100px;
+	/*display: block;*/
+	border: 1px solid red;
+	float: right;
+	position: absolute;
+	bottom: 8px;
+	left: 8px;
+}
+#actions {
+	margin-bottom: 1em;
+	font-weight: bold;
+}
+
+.delete {
+	width: 100px;
+	/*display: block;*/
+	border: 1px solid blue;
+	position: absolute;
+	bottom: 8px;
+	/*left: 370px;*/
+	right: 8px;
+	text-align: right;
 }
 
 .logout {
@@ -32,4 +57,10 @@ span {
 
 .new {
 	margin: 1em;
+}
+
+#actions {
+	display: block;
+	width: 30px;
+
 }

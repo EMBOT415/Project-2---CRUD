@@ -20,7 +20,7 @@
 	color: #777a7a;
 	font-size: 18px;
 	font-weight: bold;
-	display: inline-block;
+	display: block;
 	box-sizing: border-box;
 	margin: 1em;
 	height: 2em;
@@ -44,9 +44,10 @@
 
 /*login | regiseter*/
 div#right {
-	width: 40%;
-	text-align: right;
-	display: inline-block;
+	width: 200px;
+	/*text-align: right;*/
+	display: block;
+	float: right;
 }
 
 /* Dropdown Content (Hidden by Default) */
