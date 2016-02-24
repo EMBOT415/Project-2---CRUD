@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'disco';
-	/*src: url('/css/fonts/disco.ttf');*/
-	src: url('https://cloudinary.com/console/media_library#/dialog/raw/upload/DISCO_crjjbw.ttf');
+	src: url('/css/fonts/disco.ttf');
+	/*src: url('https://cloudinary.com/console/media_library#/dialog/raw/upload/DISCO_crjjbw.ttf');*/
 }
 
  * {

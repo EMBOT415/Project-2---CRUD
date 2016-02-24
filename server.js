@@ -18,8 +18,8 @@ var express							= require('express'),
 //CONFIGURATION//
 /////////////////////////////////
 
-// mongoose.connect('mongodb://localhost:27017/ericportfolio');
-mongoose.connect(mongoUri);
+mongoose.connect('mongodb://localhost:27017/ericportfolio');
+// mongoose.connect(mongoUri);
 
 /////////////////////////////////
 //MIDDLEWARE//
