@@ -34,7 +34,25 @@
 			<input type="hidden" name="_method" value="PUT"/>
 			<button type="submit">UPDATE</button>
 		</form>
-</div>
+		</div>
+	<div>
+		<div>
+
+		<h3> update project info</h3>
+		<% for (var i= 0; i < users.project.length; i++) { %>
+
+		<form id="editformid" action="/eric/<%= users.id %>" method="POST">
+			<input type="text" name="projectName" value="<%= users.project[i].projectName %>">
+			<input type="text" name="startDate" value="<%= users.project[i].startDate %>">
+			<input type="text" name="quote" value="<%= users.project[i].quote %>">
+			<input type="text" name="timeline" value="<%= users.project[i].timeline%>">
+			<input id="editformid" type="text" name="details" value="<%= users.project[i].details %>">
+			<input type="hidden" name="_method" value="PUT"/>
+			<% } %>
+			<button type="submit">UPDATE</button>
+
+		</form>
+		</div>
 
 	<footer>
 		<% include ./footerpartial %>

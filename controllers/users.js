@@ -145,18 +145,18 @@ router.get('/:id', isLoggedIn, function(req, res) {
 //NEW PROJECT TO USER
 ///////////////////////////////////
 
-// router.post('/:id/newproject', function(req, res) {
-// 	User.findById(req.params.id, function(err, user) {
-// 		var project = new Project(req.body);
-// 		project.save(function(err, project) {
-// 			user.project.push(project);
-// 			user.save(function(err, user) {
-// 				res.redirect('/eric/' + req.params.id);
-// 			});		
-// 		});
-// 	});
-// 	console.log(req.body)
-// });
+router.post('/:id/newproject', function(req, res) {
+	User.findById(req.params.id, function(err, user) {
+		var project = new Project(req.body);
+		project.save(function(err, project) {
+			user.project.push(project);
+			user.save(function(err, user) {
+				res.redirect('/eric/' + req.params.id);
+			});		
+		});
+	});
+	console.log(req.body)
+});
 
 
 // router.post('/:id/newproject', function(req, res) {
