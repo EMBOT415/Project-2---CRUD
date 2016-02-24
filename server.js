@@ -10,8 +10,8 @@ var express							= require('express'),
 		passport						= require('passport'),
 		session							= require('express-session'),
 		app									= express();
-		// port 								= process.env.PORT || 3000;
-var mongoUri						= process.env.MONGOLAB_URI || 'mongodb://localhost/rewilakportfolio';		
+		port 								= process.env.PORT || 3000,
+	 	mongoUri						= process.env.MONGOLAB_URI || 'mongodb://localhost/rewilakportfolio';		
 		//configDB						=	require('./config/database.js');
 
 /////////////////////////////////
