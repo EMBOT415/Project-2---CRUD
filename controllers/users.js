@@ -217,25 +217,25 @@ router.put('/:id', function(req, res){
 //DELETE
 ///////////////////////////////////
 
-router.delete('/:id', function(req, res) {
-	console.log('DELETE ROUTE ACCESSED');
-	User.findById(req.params.id, function(err, user) {
-		if (user.locations.length == 0) {
-			user.remove(function(err) {
-				res.redirect('/users');
-			});
-		} else {
-			user.locations.forEach(function(location) {
-				Location.findOneAndRemove({ _id: location.id }, function(err) {
-					if (err) console.log(err);
-				});
-			});
-			user.remove(function(err) {
-				res.redirect('/users');
-			});
-		} // end if
-	}); // end User find
-});
+// router.delete('/:id', function(req, res) {
+// 	console.log('DELETE ROUTE ACCESSED');
+// 	User.findById(req.params.id, function(err, user) {
+// 		if (user.locations.length == 0) {
+// 			user.remove(function(err) {
+// 				res.redirect('/users');
+// 			});
+// 		} else {
+// 			user.locations.forEach(function(location) {
+// 				Location.findOneAndRemove({ _id: location.id }, function(err) {
+// 					if (err) console.log(err);
+// 				});
+// 			});
+// 			user.remove(function(err) {
+// 				res.redirect('/users');
+// 			});
+// 		} // end if
+// 	}); // end User find
+// });
 
 
 function isLoggedIn(req, res, next) {
