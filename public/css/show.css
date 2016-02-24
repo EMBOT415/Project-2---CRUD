@@ -1,50 +1,92 @@
 
-
-
-li {
-	list-style: none;
+#projectul {
+	display: inline-block;
+	width: 97%;
+	margin: 0;
+	padding-left: 8px;
+	/*float: left;*/
+	/*border: 1px solid red;*/
 }
 
-#projects {
-	border: 1px solid black;
-	width: 40%;
-	margin: 1em;
+div#center {
+	text-align: center;
+	font-weight: bold;
+	/*color: red;*/
+}
+
+div.projects {
+	border: 1px solid lightgrey;
+	/*width: 40%;*/
+	/*margin: 1em;*/
 	position: relative;
+	/*padding-left: 8px;*/
+	padding-top: 1em;
+	display: inline-block;
+	width: 45%;
+	margin-bottom: 1em;
+	box-sizing: border-box;
+}
+
+div.item {
+	list-style: none;
+	display: inline-block;
+	padding-bottom: .25em;
+	width: 95%;
 	padding-left: 8px;
+	/*border: 1px solid blue*/
 }
 
 span {
 	font-weight: bold;
 }
 
-.welcome {
-	margin-left: 1em;
-	border: 1px solid black;
+h1.welcome {
+	width: 100%;
+	text-align: center;
+	font-size: 25px;
 }
+
+p.welcome {
+	margin-bottom: 2em;
+	margin-left: 1em;
+}
+
+div#center {
+	text-align: center;
+	font-weight: bold;
+	/*color: red;*/
+}
+
+
 
 .update {
 	width: 100px;
 	/*display: block;*/
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	float: right;
 	position: absolute;
 	bottom: 8px;
 	left: 8px;
+	padding-bottom: .5em;
+	padding-left: .5em;
 }
+
 #actions {
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 	font-weight: bold;
 }
 
 .delete {
-	width: 100px;
+	width: 90px;
 	/*display: block;*/
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
 	position: absolute;
 	bottom: 8px;
 	/*left: 370px;*/
 	right: 8px;
 	text-align: right;
+	padding-bottom: .5em;
+	padding-right: .5em;
 }
 
 .logout {
