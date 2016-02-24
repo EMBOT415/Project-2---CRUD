@@ -10,14 +10,16 @@ var express							= require('express'),
 		passport						= require('passport'),
 		session							= require('express-session'),
 		app									= express(),
-		port 								= process.env.PORT || 3000;
+		// port 								= process.env.PORT || 3000;
+var mongoUri						= process.env.MONGOLAB_URI || 'mongodb://localhost/rewilakportfolio';		
 		//configDB						=	require('./config/database.js');
 
 /////////////////////////////////
 //CONFIGURATION//
 /////////////////////////////////
 
-mongoose.connect('mongodb://localhost:27017/ericportfolio');
+// mongoose.connect('mongodb://localhost:27017/ericportfolio');
+mongoose.connect(mongoUri);
 
 /////////////////////////////////
 //MIDDLEWARE//
