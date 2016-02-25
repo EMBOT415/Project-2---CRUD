@@ -28,29 +28,20 @@
 
 		
 	<p class="welcome">These are all the projects: </p></br>
+		<div>
+			<% for (var i=0; i < projects.length; i++) { %>
 			<div>
-		<!-- 		<a href="/eric"><p>Projects By User</p></a> -->
-				<% for (var i=0; i < projects.length; i++) { %>
-							<div>
-								<p>Project Name:  <%= projects[i].projectName %></p>
-								<p>Project id: <%= projects[i]._id %></p>
-								<p>Project Start:  <%= projects[i].startDate %></p>
-								<p>Quote:  <%= projects[i].quote %></p>
-								<p>Timeline:  <%= projects[i].timeline %></p>
-								<p>Details:  <%= projects[i].details %></p>
-								<button><a href="/projects/<%= projects[i]._id %>">show me</a></button> -->
-     <form action="/projects" method="DELETE"> 
-			<input type="hidden" name="_method" value="projects[i]._id">
-			<button id="delete-button">Delete Me</button>
-		</form>
-
-		<!--  <form action="/" method="DELETE"> 
-			<input type="hidden" name="_method" value="DELETE">
-			<button id="delete-button">Delete Me</button>
-		</form>--></br>
-					<% } %>
-
-			</div> <!-- end control-panel -->
+				<p>Project Name:  <%= projects[i].projectName %></p>
+				<p>Project id: <%= projects[i]._id %></p>
+				<p>Project Start:  <%= projects[i].startDate %></p>
+				<p>Quote:  <%= projects[i].quote %></p>
+				<p>Timeline:  <%= projects[i].timeline %></p>
+				<p>Details:  <%= projects[i].details %></p>
+				<button><a href="/projects/<%= projects[i]._id %>">show me</a></button>
+				</br>
+				<% } %>
+			</div>
+		</div> <!-- end control-panel -->
 
 
 	

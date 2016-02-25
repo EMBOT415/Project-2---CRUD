@@ -32,7 +32,9 @@
 	</nav>
 	<h1 class="welcome"> Welcome, <%= users.username %> !</h1></br>
 	<p class="welcome">These are your projects: </p>
-		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update User Info</a></div></br>
+
+
+
 	<div id="projectul">
 		<% for (var i= 0; i < users.project.length; i++) { %>
 		<div class="projects">
@@ -60,7 +62,7 @@
 		<input type="submit">
 	</form>
 </div></br>
-
+	<div><a class="link" href="/eric/<%= users.id %>/edit">Update User Info</a></div></br>
  <div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div></br>
 <footer>
 <nav>

@@ -9,7 +9,7 @@
  	margin: 0;
  	font-size: 18px;
 	
-font-family: 'Syncopate', sans-serif;
+font-family: 'Quicksand', sans-serif;
 
 	background-color: white;
 }
@@ -68,7 +68,7 @@ div#right {
 .dropbtn {
 	background-color: white;
 	
-font-family: 'Syncopate', sans-serif;
+font-family: 'Quicksand', sans-serif;
 
 	font-size: 18px;
 	font-weight: bold;
@@ -104,14 +104,14 @@ font-family: 'Syncopate', sans-serif;
 }
 a.link:visited {
 	
-font-family: 'Syncopate', sans-serif;
+font-family: 'Quicksand', sans-serif;
 
 	color: black;
 }
 
 a.link:link{
 	
-font-family: 'Syncopate', sans-serif;
+font-family: 'Quicksand', sans-serif;
 
 	color: black;
 	text-decoration: none;

@@ -209,7 +209,7 @@ router.post('/login', passport.authenticate('local-login', {
 ///////////////////////////////////
 router.get('/:id/edit', function(req, res){
 	User.findById(req.params.id, function(err, users){
-	res.render('users/edit.ejs', {
+	res.render('users/edituser.ejs', {
 	 	users: users
 	 });
 	});
