@@ -25,6 +25,7 @@
 			<a class="link" href="/eric/client"> log in | register </a></button>
 		</div>
 	</nav>
+
 	<h1 class="welcome"><%= projects.projectName %> !</h1></br>
 		
 		<div id="projectul">
@@ -40,7 +41,9 @@
 	</div>
 
 	</form>
-	    <form action="/projects/?_method=DELETE" method="POST">
+	  <!--   <form action="/projects/<%= projects.id%>?_method=DELETE" method="DELETE"> -->
+	    	 <form action="/projects/<%= projects.id%>" method="POST">
+	    	<input type="hidden" name="_method" value="DELETE">
 	      <button>delete me</button></br>
 	    </form>
 		</div>

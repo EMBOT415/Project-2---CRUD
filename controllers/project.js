@@ -15,8 +15,8 @@ router.get('/', function(req, res) {
 			projects: projects
 
 		})
-		console.log(projects)
-		console.log('this is index page')
+		// console.log(projects)
+		// console.log('this is index page')
 	})
 });
 
@@ -32,13 +32,13 @@ router.get('/:id', function(req, res) {
 });						
 
 
-router.delete('/', function(req, res){
-  Project.findByIdAndRemove(req.params.id, function(err, data){
-    res.redirect('/allprojects');
+router.delete('/:id', function(req, res){
+	console.log("delete route accessed")
+  Project.findByIdAndRemove(req.params.id, function(err, projects){
+    res.redirect('/');
   });
-   console.log("delete route accessed")
-  console.log(data)
-  console.log("delete route accessed")
+  //console.log(projects)
+  //console.log("delete route accessed")
 })
 
 //////////////////////////////////////
