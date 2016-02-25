@@ -36,14 +36,18 @@
 			<div class='item'><span> Estimated Timeline: </span><%= projects[i].timeline %></div></br>
 			<div class='item'><span> Details:  </span><%= projects[i].details %></div></br>
 			<!-- <div class="delete"><a class="link" href="/eric/delete">DELETE</a></div> -->
+			<form action="" method="DELETE"> 
+				<input type="hidden" name="_method" value="DELETE">
+				<button id="delete-button">Delete Me</button>
+			</form>
 		</div>
 		<% } %>
 	</div>	
 
-	<form action="/project/allprojects" method="DELETE"> 
+<!-- 	<form action="" method="DELETE"> 
 			<input type="hidden" name="_method" value="DELETE">
 			<button id="delete-button">Delete Me</button>
-</form>
+	</form> -->
 <div id="footerdiv">
 <footer>
 	<% include ../users/footerpartial %>

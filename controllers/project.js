@@ -16,15 +16,18 @@ router.get('/', function(req, res) {
 
 		})
 		console.log(projects)
+		console.log('this')
 	})
 });
 
 
-router.delete('/:id', function(req, res){
+router.delete('/', function(req, res){
   Project.findByIdAndRemove(req.params.id, function(err, data){
     res.redirect('/allprojects');
   });
+   console.log("delete route accessed")
   console.log(data)
+  console.log("delete route accessed")
 })
 
 //////////////////////////////////////
