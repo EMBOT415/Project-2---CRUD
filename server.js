@@ -9,21 +9,21 @@ var express							= require('express'),
 		morgan							=	require('morgan'),
 		passport						= require('passport'),
 		session							= require('express-session'),
-		app									= express();
+		app									= express(),
 		port 								= process.env.PORT || 3000,
-	 	mongoUri						= process.env.MONGOLAB_URI || 'mongodb://localhost/rewilakportfolio';		
+	 	mongoUri						= process.env.MONGOLAB_URI || 'mongodb://localhost/ericportfolio';		
 		//configDB						=	require('./config/database.js');
 
 /////////////////////////////////
 //CONFIGURATION//
 /////////////////////////////////
 
-// mongoose.connect('mongodb://localhost:27017/ericportfolio');
+// // mongoose.connect('mongodb://localhost:27017/ericportfolio');
 mongoose.connect(mongoUri);
 
-/////////////////////////////////
-//MIDDLEWARE//
-/////////////////////////////////
+// /////////////////////////////////
+// //MIDDLEWARE//
+// /////////////////////////////////
 
 app.use(express.static('public'));
 
@@ -43,18 +43,18 @@ app.use(methodOverride(function(req, res){
 }));
 
 
-/////////////////////////////////
-//PASSPORT//
-/////////////////////////////////
+// /////////////////////////////////
+// //PASSPORT//
+// /////////////////////////////////
 app.use(session({ name: 'project2crud', secret: 'conventional wisdom', resave: true,
     saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-/////////////////////////////////
-//ROUTES/CONTROLLERS//
-/////////////////////////////////
+// /////////////////////////////////
+// //ROUTES/CONTROLLERS//
+// /////////////////////////////////
 require('./config/passport.js')(passport);
 
 var userController 			= require('./controllers/users.js');
@@ -64,7 +64,7 @@ app.use('/projects', projectController);
 
 
 
-///////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////
 // app.use(function(req, res, next) {
 //   res.locals.login = req.isAuthenticated();
 //   next();
@@ -81,9 +81,10 @@ app.get('/', function(req, res) {
 /////////////////////////////////
 
 //mongoose.connection.once('open', function() {
-	app.listen(port);
-	console.log('=========================')
-	console.log('listening')
+app.listen(port);
+console.log('=========================')
+console.log('listening')
+
 	
 //});
 					
