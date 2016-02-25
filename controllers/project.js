@@ -6,13 +6,11 @@ var express 		= require('express'),
 
 
 
-// router.get('/', function(req, res) {
-// 	Project.find(function(err, project) {
-// 		res.render('project/index.ejs', { 
-// 			project: project 
-// 		});
-// 	});
-// });
+router.get('/eric/allprojects', function(req, res) {
+	Project.find(function(err, project) {
+		res.send('hi')
+	});
+});
 //////////////////////////////////////
 // NEW PROJECT FORM
 //////////////////////////////////////

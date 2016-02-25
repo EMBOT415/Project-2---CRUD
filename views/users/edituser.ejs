@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<% include ./headerpartial %>
+	<link rel="stylesheet" type="text/css" href="/css/edit.css">
+	</head>
+<body>
+	<nav>
+		<div class="dropdown navdisplay"><button class="dropbtn"> Work </button>
+			<div class="dropdown-content">
+			    <a href="/eric/resume">Resume</a>
+			    <a href="/eric/bass">G.H. Bass & Co</a>
+			    <a href="/eric/tory">Tory Burch</a>
+			    <a href="/eric/sta">STA</a>
+			</div>
+		</div>
+		<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
+			<div class="dropdown-content">
+			    <a href="/eric/resume">Resume</a>
+			    <a href="/eric/allprojects">Personal</a>
+			</div>
+		</div>
+		<div class="dropdown navdisplay"><button class="dropbtn"> Home </button>
+		</div>
+
+	</nav>
+		<div>
+			<h3> update user info </h3>
+			<form id="editformid" action="/eric/<%= users.id %>" method="POST">
+				Name: <input type="text" name="username" value="<%= users.username %>"></br>
+				Email: <input type="text" name="email" value="<%= users.email %>"></br>
+				Password: <input id="editformid" type="text" name="password" value="<%= users.password %>"></br>
+				<input type="hidden" name="_method" value="PUT"/>
+				<button type="submit">UPDATE</button>
+			</form></br>
+			<a class="link" href="/eric/logout">Logout</a></br>
+		
+		</div>
+<!-- 
+		<form action="/eric/:id" method="DELETE"> 
+			<input type="hidden" name="_method" value="DELETE">
+			<button id="delete-button">Delete User</button>
+		</form> -->
+
+	<footer>
+		<% include ./footerpartial %>
+	</footer>
+</body>
+</html>

@@ -19,7 +19,7 @@
 		<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
 			<div class="dropdown-content">
 			    <a href="/eric/resume">Resume</a>
-			    <a href="#">Personal</a>
+			    <a href="/eric/allprojects">Personal</a>
 			</div>
 		</div>
 
@@ -32,7 +32,7 @@
 	</nav>
 	<h1 class="welcome"> Welcome, <%= users.username %> !</h1></br>
 	<p class="welcome">These are your projects: </p>
-
+		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update User Info</a></div></br>
 	<div id="projectul">
 		<% for (var i= 0; i < users.project.length; i++) { %>
 		<div class="projects">
@@ -43,7 +43,7 @@
 			<div class='item'><span> Details:  </span><%= users.project[i].details %></div></br>
 			<div id="actions">
 				<div class="delete"><a class="link" href="/eric/delete">DELETE</a></div>
-				<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">UPDATE</a></div>
+				<div class="update"><a class="link" href="/eric/<%= users.id %>/editproject">UPDATE</a></div>
 			</div>
 		</div>
 		</br>
@@ -59,9 +59,9 @@
 		<input type="text" name="details" placeholder="details"></br>
 		<input type="submit">
 	</form>
-</div>
-		<div class="update"><a class="link" href="/eric/<%= users.id %>/edit">Update</a></div></br>
- 		<div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div>
+</div></br>
+
+ <div class="logout"><a class="link" href="/eric/logout">Logout</a></br></div></br>
 <footer>
 <nav>
 	<% include ./footerpartial %>

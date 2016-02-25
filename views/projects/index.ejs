@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
-	<% include ./headerpartial %>
+	<% include ../users/headerpartial %>
 	</head>
 <body>
 	<nav id="topnav">
@@ -13,10 +13,10 @@
 			    <a href="/eric/staNby">STA Newbury St</a>
 			</div>
 		</div>
-			<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
-				<div class="dropdown-content">
-			    <a href="/eric/resume">Resume</a>
-			    <a href="#">Personal</a>
+		<div class="dropdown navdisplay"><button class="dropbtn"> About </button>
+			<div class="dropdown-content">
+		    <a href="/eric/resume">Resume</a>
+		    <a href="/eric/allprojects">Personal</a>
 			</div>
 		</div>
 		<div id="right" class="navdisplay dropdown"><button class="dropbtn">
@@ -24,11 +24,23 @@
 		</div>
 	</nav>
 
-	</div>
+		
+	<p class="welcome">These are all the projects: </p>
+			<div>
+		<!-- 		<a href="/eric"><p>Projects By User</p></a> -->
+				<% for (var i=0; i < projects.length; i++) { %>
+							<div>
+								<p>Project Name:  <%= projects[i].projectName %></p>
+								<p>Project id: <%= projects[i]._id %></p>
+					<% } %>
+
+			</div> <!-- end control-panel -->
+
+
 	
 <div id="footerdiv">
 <footer>
-	<% include ./footerpartial %>
+	<% include ../users/footerpartial %>
 </footer>
 </div>
 </body>

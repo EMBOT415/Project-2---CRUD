@@ -67,6 +67,15 @@ router.get('/resume', function(req, res) {
 });
 
 //////////////////////////////////////
+// RESUME PAGE
+//////////////////////////////////////
+router.get('/allprojects', function(req, res) {
+	Project.find(function(err, projects) {
+		res.render('projects/index.ejs', { projects: projects });
+	});
+});
+
+//////////////////////////////////////
 // NEW PROJECT FORM
 //////////////////////////////////////
 router.get('/:id/newproject', function(req, res) {
@@ -196,7 +205,7 @@ router.post('/login', passport.authenticate('local-login', {
 
 
 ///////////////////////////////////
-//UPDATE
+//UPDATE User
 ///////////////////////////////////
 router.get('/:id/edit', function(req, res){
 	User.findById(req.params.id, function(err, users){
@@ -215,11 +224,31 @@ router.put('/:id', function(req, res){
 });
 
 ///////////////////////////////////
+//UPDATE project
+///////////////////////////////////
+router.get('/:id/editproject', function(req, res){
+	Project.findById(req.params.id, function(err, projects){
+	res.render('projects/editproject.ejs', {
+	 	projects: projects
+	 });
+	});
+});
+
+//SET UP THE PATH TO UPDATE AND ITEM IN MONGO ... WHAT HAPPENS WHEN YOU CLICK THE BUTTON
+router.put('/:id', function(req, res){
+	User.findByIdAndUpdate(req.params.id, req.body, function(err, users){
+		res.redirect('/eric/' + req.params.id);
+		console.log(err);
+	});
+});
+///////////////////////////////////
 //DELETE
 ///////////////////////////////////
 
-// router.delete('/:id', function(req, res) {
-// 	console.log('DELETE ROUTE ACCESSED');
+
+
+router.delete('/:id', function(req, res) {
+	console.log('DELETE ROUTE ACCESSED');
 // 	User.findById(req.params.id, function(err, user) {
 // 		if (user.locations.length == 0) {
 // 			user.remove(function(err) {
@@ -234,9 +263,9 @@ router.put('/:id', function(req, res){
 // 			user.remove(function(err) {
 // 				res.redirect('/users');
 // 			});
-// 		} // end if
+// 		} // end is
 // 	}); // end User find
-// });
+});
 
 
 function isLoggedIn(req, res, next) {
@@ -299,4 +328,5 @@ module.exports = router;
 // 	res.redirect('/users/' + req.user.id);
 // 	//res.send('sup')
 // });
+
 
