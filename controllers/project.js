@@ -6,11 +6,19 @@ var express 		= require('express'),
 
 
 
-router.get('/eric/allprojects', function(req, res) {
-	Project.find(function(err, project) {
-		res.send('hi')
-	});
+//GET THE INDEX PAGE
+router.get('/', function(req, res) {
+	//FIND ALL LOCATIONS
+	Project.find({}, function(err, projects){
+		// PASS OFF LOCATIONS TO THE LOCATIONS INDEX VIEW
+		res.render('projects/index.ejs', {
+			projects: projects
+		})
+	})
 });
+
+
+
 //////////////////////////////////////
 // NEW PROJECT FORM
 //////////////////////////////////////

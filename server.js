@@ -18,8 +18,8 @@ var express							= require('express'),
 //CONFIGURATION//
 /////////////////////////////////
 
-// mongoose.connect('mongodb://localhost:27017/ericportfolio');
-mongoose.connect(mongoUri);
+mongoose.connect('mongodb://localhost:27017/ericportfolio');
+// mongoose.connect(mongoUri);
 
 /////////////////////////////////
 //MIDDLEWARE//
@@ -60,6 +60,7 @@ require('./config/passport.js')(passport);
 var userController 			= require('./controllers/users.js');
 var projectController 	= require('./controllers/project.js');
 app.use('/eric', userController);
+app.use('/projects', projectController);
 
 
 
