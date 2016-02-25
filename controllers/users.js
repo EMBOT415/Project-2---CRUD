@@ -245,27 +245,49 @@ router.put('/:id', function(req, res){
 //DELETE
 ///////////////////////////////////
 
+router.get('/allprojects', function(req, res){
+	find
+})
+
+// router.delete('/:id', function(req, res){
+// 	User.findByIdAndRemove(req.params.id, function(err, taco){
+// 	//	console.log(req.params.id)
+// 	//	console.log(taco)
+// 		//console.log(taco.locations)
+// 		//console.log(taco.locations[0].id)
+// 		for (var i=0; i<taco.locations.length; i++){
+// 			//console.log(taco.locations.length)
+// 			console.log(taco.locations[i].id);
+// 			Locations.findByIdAndRemove(taco.locations[i].id, function(err, locations){
+// 			})
+// 			res.redirect('/users')
+// 		}
+// 		// Locations.findById(req.body.id, function(err, locations){
+// 		// 	console.log(req.body.id)
+// 		// })
+// 	});
+// });
 
 
-router.delete('/:id', function(req, res) {
-	console.log('DELETE ROUTE ACCESSED');
-// 	User.findById(req.params.id, function(err, user) {
-// 		if (user.locations.length == 0) {
-// 			user.remove(function(err) {
-// 				res.redirect('/users');
-// 			});
-// 		} else {
-// 			user.locations.forEach(function(location) {
-// 				Location.findOneAndRemove({ _id: location.id }, function(err) {
-// 					if (err) console.log(err);
-// 				});
-// 			});
-// 			user.remove(function(err) {
-// 				res.redirect('/users');
-// 			});
-// 		} // end is
-// 	}); // end User find
-});
+// router.delete('/:id', function(req, res) {
+// 	console.log('DELETE ROUTE ACCESSED');
+// 	// User.findById(req.params.id, function(err, user) {
+// 	// 	if (user.locations.length == 0) {
+// 	// 		user.remove(function(err) {
+// 	// 			res.redirect('/users');
+// 	// 		});
+// 	// 	} else {
+// 	// 		user.locations.forEach(function(location) {
+// 	// 			Location.findOneAndRemove({ _id: location.id }, function(err) {
+// 	// 				if (err) console.log(err);
+// 	// 			});
+// 	// 		});
+// 	// 		user.remove(function(err) {
+// 	// 			res.redirect('/users');
+// 	// 		});
+// 	// 	} // end is
+// 	// }); // end User find
+// });
 
 
 function isLoggedIn(req, res, next) {

@@ -26,30 +26,24 @@
 		</div>
 	</nav>
 
-		
-	<p class="welcome">These are all the projects: </p></br>
-			<div>
-		<!-- 		<a href="/eric"><p>Projects By User</p></a> -->
-				<% for (var i=0; i < projects.length; i++) { %>
-							<div>
-								<p>Project Name:  <%= projects[i].projectName %></p>
-								<p>Project id: <%= projects[i]._id %></p>
-								<p>Project Start:  <%= projects[i].startDate %></p>
-								<p>Quote:  <%= projects[i].quote %></p>
-								<p>Timeline:  <%= projects[i].timeline %></p>
-								<p>Details:  <%= projects[i].details %></p>
+	<h1 class="welcome"> Welcome, this is the show page for <%= projects[i].projectName %> !</h1></br>
+	<p class="welcome">These are your projects: </p>
+	<div id="projectul">
+		<% for (var i= 0; i < projects.length; i++) { %>
+		<div class="projects">
+			<div class='item'><span> Quote:  </span><%= projects[i].quote %></div></br>
+			<div class='item'><span> Start:  </span><%= projects[i].startDate %></div></br>
+			<div class='item'><span> Estimated Timeline: </span><%= projects[i].timeline %></div></br>
+			<div class='item'><span> Details:  </span><%= projects[i].details %></div></br>
+			<!-- <div class="delete"><a class="link" href="/eric/delete">DELETE</a></div> -->
+		</div>
+		<% } %>
+	</div>	
 
-
-		<form action="" method="DELETE"> 
+	<form action="/project/allprojects" method="DELETE"> 
 			<input type="hidden" name="_method" value="DELETE">
 			<button id="delete-button">Delete Me</button>
-		</form></br>
-					<% } %>
-
-			</div> <!-- end control-panel -->
-
-
-	
+</form>
 <div id="footerdiv">
 <footer>
 	<% include ../users/footerpartial %>

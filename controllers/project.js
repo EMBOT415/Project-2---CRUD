@@ -13,11 +13,19 @@ router.get('/', function(req, res) {
 		// PASS OFF LOCATIONS TO THE LOCATIONS INDEX VIEW
 		res.render('projects/index.ejs', {
 			projects: projects
+
 		})
+		console.log(projects)
 	})
 });
 
 
+router.delete('/:id', function(req, res){
+  Project.findByIdAndRemove(req.params.id, function(err, data){
+    res.redirect('/allprojects');
+  });
+  console.log(data)
+})
 
 //////////////////////////////////////
 // NEW PROJECT FORM
