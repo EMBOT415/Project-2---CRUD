@@ -16,9 +16,20 @@ router.get('/', function(req, res) {
 
 		})
 		console.log(projects)
-		console.log('this')
+		console.log('this is index page')
 	})
 });
+
+
+router.get('/:id', function(req, res) {
+		Project.find({}, function(err, projects){
+        Project.findById(req.params.id, function(err, projects) {
+            res.render('projects/showproject.ejs', {
+                projects: projects
+           });
+        });		
+    });					     
+});						
 
 
 router.delete('/', function(req, res){

@@ -25,29 +25,26 @@
 			<a class="link" href="/eric/client"> log in | register </a></button>
 		</div>
 	</nav>
-
-	<h1 class="welcome"> Welcome, this is the show page for <%= projects[i].projectName %> !</h1></br>
-	<p class="welcome">These are your projects: </p>
-	<div id="projectul">
-		<% for (var i= 0; i < projects.length; i++) { %>
+	<h1 class="welcome"><%= projects.projectName %> !</h1></br>
+		
+		<div id="projectul">
 		<div class="projects">
-			<div class='item'><span> Quote:  </span><%= projects[i].quote %></div></br>
-			<div class='item'><span> Start:  </span><%= projects[i].startDate %></div></br>
-			<div class='item'><span> Estimated Timeline: </span><%= projects[i].timeline %></div></br>
-			<div class='item'><span> Details:  </span><%= projects[i].details %></div></br>
-			<!-- <div class="delete"><a class="link" href="/eric/delete">DELETE</a></div> -->
-			<form action="" method="DELETE"> 
-				<input type="hidden" name="_method" value="DELETE">
+			<div class='item'><div id='center'><%= projects.projectName %></div></div></br>
+			<div class='item'><span> Quote:  </span><%= projects.quote %></div></br>
+			<div class='item'><span> Start:  </span><%= projects.startDate %></div></br>
+			<div class='item'><span> Estimated Timeline: </span><%= projects.timeline %></div></br>
+			<div class='item'><span> Details:  </span><%= projects.details %></div></br>
+
+		</div>
+		</br>
+	</div>
+
+			<form action="/projects/" method="DELETE"> 
+				<input type="hidden" name="_method" value="<%= projects._id %>">
 				<button id="delete-button">Delete Me</button>
 			</form>
 		</div>
-		<% } %>
-	</div>	
 
-<!-- 	<form action="" method="DELETE"> 
-			<input type="hidden" name="_method" value="DELETE">
-			<button id="delete-button">Delete Me</button>
-	</form> -->
 <div id="footerdiv">
 <footer>
 	<% include ../users/footerpartial %>

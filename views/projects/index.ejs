@@ -38,9 +38,9 @@
 								<p>Quote:  <%= projects[i].quote %></p>
 								<p>Timeline:  <%= projects[i].timeline %></p>
 								<p>Details:  <%= projects[i].details %></p>
-								<button>show me</button>
+								<button><a href="/projects/<%= projects[i]._id %>">show me</a></button> -->
      <form action="/projects" method="DELETE"> 
-			<input type="hidden" name="_method" value="DELETE">
+			<input type="hidden" name="_method" value="projects[i]._id">
 			<button id="delete-button">Delete Me</button>
 		</form>
 
